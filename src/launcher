@@ -1,0 +1,21 @@
+#!/bin/bash
+
+JAR=$(ls /opt/termsuite-istex-*.jar)
+OPTS=""
+
+# Get the program name as first argument from command line option and remove it
+
+# Add local user
+# Either use the LOCAL_USER_ID if passed in at runtime or fallback
+USER_ID=${LOCAL_USER_ID??" env LOCAL_USER_ID must be set"}
+echo "Starting with UID : $USER_ID"
+# Bind actual user_id to new inner user account named "user"
+useradd --shell /bin/bash -u $USER_ID -o -c "" -m user
+export HOME=/home/user
+
+
+cmd="java -cp $JAR fr.univnantes.termsuite.istex.cli.IstexLauncher -t /opt/treetagger $@"
+echo "Executing: $cmd"
+
+# Run as user "user"
+exec /usr/local/bin/gosu user java -cp $JAR fr.univnantes.termsuite.istex.cli.IstexLauncher -t /opt/treetagger $@
