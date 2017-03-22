@@ -35,10 +35,9 @@ Where `OPTIONS` are the options you need to run the terminology extraction,
  **except the tagger home option `-t`**, which is no more required here because
  the tagger is installed inside the docker image.
 
-See [TermSuite' Istex launcher](https://termsuite.github.io/documentation/command-line-api/) to get documentation and available options.
+See [TermSuite' Istex launcher](https://github.com/termsuite/termsuite-istex/) to get documentation on available options.
 
-
-You can also get information with option `--help`:
+You can also get information by appending `--help`:
 
 ```
 $ bin/termsuite-istex --help
