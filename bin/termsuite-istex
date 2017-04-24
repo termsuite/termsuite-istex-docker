@@ -2,7 +2,7 @@
 DOCKERFILE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../Dockerfile"
 TERMSUITE_ISTEX_VERSION=`grep  -Po "TERMSUITE_ISTEX_VERSION=\S+" $DOCKERFILE | cut -d= -f2`
 
-docker run --rm --name termsuite -it \
+docker run --rm --name termsuite-istex -it \
             -v "${HOME}:${HOME}" \
             -v "${PWD}:${PWD}" \
             -w "${PWD}" \
