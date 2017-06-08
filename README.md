@@ -20,7 +20,7 @@ This will build the docker image `termsuite-istex:X.Y.Z` where `X.Y.Z` is the ve
 ```
 ENV \
   TT_VERSION=3.2.1 \
-  TERMSUITE_ISTEX_VERSION=1.1.1 \
+  TERMSUITE_ISTEX_VERSION=1.1.2 \
 ```
 
 # Running
